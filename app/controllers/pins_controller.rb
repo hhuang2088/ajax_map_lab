@@ -12,9 +12,6 @@ class PinsController < ApplicationController
     redirect_to new_pin_path
   end
 
-  def show
-  end
-
   private 
   def pin_params 
     params.require(:pin).permit(:longitude, :latitude)
