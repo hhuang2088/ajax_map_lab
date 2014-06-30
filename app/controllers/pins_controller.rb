@@ -1,6 +1,10 @@
 class PinsController < ApplicationController
   def index
     @pins = Pin.all 
+
+    respond_to do |f|
+      f.json { render json: @pins}
+    end
   end
 
   def new 
@@ -9,7 +13,13 @@ class PinsController < ApplicationController
 
   def create 
     @pin = Pin.new(pin_params)
-    redirect_to new_pin_path
+    respond_to do |format|
+      if @pin.save
+        format.json { render json: @pin, status: :created}
+      else
+        format.json { render json: @pin.errors, status: :unprocessable_entity}
+      end
+    end
   end
 
   private 

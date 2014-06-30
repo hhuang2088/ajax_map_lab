@@ -1,2 +1,18 @@
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd5T-_NYteKlBbmFHnx5IMH2T5OoJGds4&sensor=true">
-     </script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maps</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" 
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd5T-_NYteKlBbmFHnx5IMH2T5OoJGds4">
+    </script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
